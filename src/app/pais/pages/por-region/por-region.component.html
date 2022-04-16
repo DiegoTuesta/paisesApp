@@ -1,0 +1,29 @@
+<div class="animate__animated animate__fadeIn animated__fast">
+    <h2>Buscar por region <small>{{regionactiva | titlecase}}</small></h2>
+    <hr>
+    <h5>Seleccione la region</h5>
+    <div class="row">
+        <div class="col">
+    
+            <!-- Opciones de cambio de css -->
+            <!-- [class.btn-primary]=" item === regionactiva"  -->
+             <!-- [ngClass]="{
+                'btn-primary': regionactiva === item,
+                'btn-outline-primary': regionactiva !== item,
+            }" -->
+            <button 
+            *ngFor="let item of region"
+            (click)="activarRegion(item)"
+            [class]="getClassCss(item)"  >
+                {{item | titlecase }}
+            </button>
+        </div>
+    
+    </div>
+    <hr>
+    <div *ngIf="paises.length > 0" class="row">
+        <div class="col">
+          <app-pais-tabla [paisesTabla]="paises"></app-pais-tabla>
+        </div>
+      </div>
+</div>
